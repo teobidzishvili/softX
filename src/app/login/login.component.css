@@ -1,0 +1,10 @@
+#error {
+    background-color:  #ffcce6;
+    color: #99004d;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+form > h1 {
+    background-color: #F5F5F5;
+}

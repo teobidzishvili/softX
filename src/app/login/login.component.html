@@ -1,0 +1,22 @@
+<ng-container  *ngIf="error">
+  <div class="alert alert-danger">
+    <p>{{ error }}</p>
+  </div>
+</ng-container>
+<div class="container card mt-5 px-0 d-block" >
+  <form (ngSubmit)="getUsers()" [formGroup]="loginForm">
+
+    <h1 class="p-3">Angular Signin</h1>
+    <div class="px-3">
+        <label for="username">USERNAME</label><br>
+        <input matInput formControlName="username" id="username"><br>
+        <mat-error *ngIf="username.invalid && username.touched" class="text-danger">Username is required</mat-error>
+    </div><br>
+    <div class="px-3">
+        <label for="password">PASSWORD</label><br>
+        <input matInput formControlName="password" id="password"><br>
+        <mat-error *ngIf="password.invalid && password.touched" class="text-danger">Password is required</mat-error>
+    </div><br>
+    <button mat-raised-button [disabled]="loginForm.invalid" class="bg-primary text-light mx-3 mb-3"><a routerLink=""></a>Sign in</button>
+  </form>
+</div> 

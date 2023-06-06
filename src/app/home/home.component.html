@@ -1,0 +1,41 @@
+<h1>Users List</h1>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>username</th>
+      <th>email</th>
+      <th>website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts, let i = index" (mousedown)="toggleMenu($event, i)">
+      <td>{{ post.id }}</td>
+      <td>{{ post.name }}</td>
+      <td>{{ post.username }}</td>
+      <td>{{ post.email }}</td>
+      <td>{{ post.website }}</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <ul [style.top]="menuPosition?.top" [style.left]="menuPosition?.left" id="menu" *ngIf="isMenuOpened" class="position-absolute context-menu list-group col-3">
+    <li class="list-group-item" (click)="showDetails()">Details</li>
+    <li class="list-group-item" (click)="deletePost()">Delete</li>
+  </ul>
+</div>
+
+<div 
+  class="card position-absolute text-light text-center" 
+  *ngIf="selectedUser" 
+  [style.backgroundImage]="'url(assets/background.jpeg)'"
+  >
+    <div class="card-body">
+    <h1 class="ww-25 card-title bg-primary rounded-circle py-5">{{ selectedUser.name.charAt(0) }}</h1>
+    <h4 class="card-title pt-5">{{ selectedUser.name }}</h4>
+    <p class="card-text">{{ selectedUser.email }}</p>
+  </div>
+</div>
+
+
